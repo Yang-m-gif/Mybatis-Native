@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slk.wph.module.CUS_Price_Page.mapper.CusPricePageMapper" >
+  <resultMap id="BaseResultMap" type="com.slk.wph.module.CUS_Price_Page.po.CusPricePage" >
+    <id column="fid" property="fid" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DOUBLE" />
+    <result column="modify_userfid" property="modifyUserfid" jdbcType="INTEGER" />
+    <result column="modifyname" property="modifyname" jdbcType="VARCHAR" />
+    <result column="modifydate" property="modifydate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    fid, type, name, price, modify_userfid, modifyname, modifydate
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.slk.wph.module.CUS_Price_Page.po.CusPricePageExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from cus_price_page
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from cus_price_page
+    where fid = #{fid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from cus_price_page
+    where fid = #{fid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.slk.wph.module.CUS_Price_Page.po.CusPricePageExample" >
+    delete from cus_price_page
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.slk.wph.module.CUS_Price_Page.po.CusPricePage" >
+    insert into cus_price_page (fid, type, name, 
+      price, modify_userfid, modifyname, 
+      modifydate)
+    values (#{fid,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{price,jdbcType=DOUBLE}, #{modifyUserfid,jdbcType=INTEGER}, #{modifyname,jdbcType=VARCHAR}, 
+      #{modifydate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.slk.wph.module.CUS_Price_Page.po.CusPricePage" >
+    insert into cus_price_page
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fid != null" >
+        fid,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="modifyUserfid != null" >
+        modify_userfid,
+      </if>
+      <if test="modifyname != null" >
+        modifyname,
+      </if>
+      <if test="modifydate != null" >
+        modifydate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fid != null" >
+        #{fid,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="modifyUserfid != null" >
+        #{modifyUserfid,jdbcType=INTEGER},
+      </if>
+      <if test="modifyname != null" >
+        #{modifyname,jdbcType=VARCHAR},
+      </if>
+      <if test="modifydate != null" >
+        #{modifydate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.slk.wph.module.CUS_Price_Page.po.CusPricePageExample" resultType="java.lang.Integer" >
+    select count(*) from cus_price_page
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update cus_price_page
+    <set >
+      <if test="record.fid != null" >
+        fid = #{record.fid,jdbcType=INTEGER},
+      </if>
+      <if test="record.type != null" >
+        type = #{record.type,jdbcType=INTEGER},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.price != null" >
+        price = #{record.price,jdbcType=DOUBLE},
+      </if>
+      <if test="record.modifyUserfid != null" >
+        modify_userfid = #{record.modifyUserfid,jdbcType=INTEGER},
+      </if>
+      <if test="record.modifyname != null" >
+        modifyname = #{record.modifyname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modifydate != null" >
+        modifydate = #{record.modifydate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update cus_price_page
+    set fid = #{record.fid,jdbcType=INTEGER},
+      type = #{record.type,jdbcType=INTEGER},
+      name = #{record.name,jdbcType=VARCHAR},
+      price = #{record.price,jdbcType=DOUBLE},
+      modify_userfid = #{record.modifyUserfid,jdbcType=INTEGER},
+      modifyname = #{record.modifyname,jdbcType=VARCHAR},
+      modifydate = #{record.modifydate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.slk.wph.module.CUS_Price_Page.po.CusPricePage" >
+    update cus_price_page
+    <set >
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="modifyUserfid != null" >
+        modify_userfid = #{modifyUserfid,jdbcType=INTEGER},
+      </if>
+      <if test="modifyname != null" >
+        modifyname = #{modifyname,jdbcType=VARCHAR},
+      </if>
+      <if test="modifydate != null" >
+        modifydate = #{modifydate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where fid = #{fid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.slk.wph.module.CUS_Price_Page.po.CusPricePage" >
+    update cus_price_page
+    set type = #{type,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DOUBLE},
+      modify_userfid = #{modifyUserfid,jdbcType=INTEGER},
+      modifyname = #{modifyname,jdbcType=VARCHAR},
+      modifydate = #{modifydate,jdbcType=TIMESTAMP}
+    where fid = #{fid,jdbcType=INTEGER}
+  </update>
+</mapper>

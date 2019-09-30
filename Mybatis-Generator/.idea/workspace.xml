@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="00405839-fd18-41f2-801d-348fe014e879" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>FW_B</find>
+      <find>modify_userId</find>
+      <find>modifyUserid</find>
+      <find>BaseResultMap</find>
+      <find>Ing</find>
+      <find>enableSubPackages</find>
+      <find>src</find>
+      <find>project</find>
+      <find>javaModelGenerator</find>
+      <find>XMLMAPPER</find>
+      <find>url</find>
+      <find>sqlMapGenerator</find>
+      <find>Example</find>
+      <find>remarks</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>WPH_Nursingbatch</replace>
+    </replaceStrings>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:/apache-maven-3.5.2" />
+        <option name="userSettingsFile" value="D:\apache-maven-3.5.2\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="50" />
+    <option name="y" value="279" />
+    <option name="width" value="1789" />
+    <option name="height" value="1000" />
+  </component>
+  <component name="ProjectId" id="1PlKzNemJhEebVNOQIgb1yWTf7k" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544162235221" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workspace\IDEA\Mybatis-Generator\src\com\slk\wph\module\CUS_Copy_Record\po" />
+      <recent name="E:\IDEA\Mybatis-Generator" />
+      <recent name="E:\IDEA\Mybatis-Generator\lib" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Applet">
+      <option name="HEIGHT" value="0" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="WIDTH" value="0" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GeneratorSqlMap" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.sui.mybatis.GeneratorSqlMap" />
+      <module name="Mybatis-Generator" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sui.mybatis.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.GeneratorSqlMap" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration useDefault="false">C:\Users\Administrator.MS-20170509WNWA\AppData\Roaming\Subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="00405839-fd18-41f2-801d-348fe014e879" name="Default Changelist" comment="" />
+      <created>1513305885031</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1513305885031</updated>
+      <workItem from="1513305889715" duration="724000" />
+      <workItem from="1513307357022" duration="834000" />
+      <workItem from="1516264617394" duration="1722000" />
+      <workItem from="1516323692558" duration="877000" />
+      <workItem from="1516605872778" duration="1454000" />
+      <workItem from="1516849866562" duration="1267000" />
+      <workItem from="1521515637832" duration="3045000" />
+      <workItem from="1527218983173" duration="1377000" />
+      <workItem from="1528425916591" duration="642000" />
+      <workItem from="1534403736642" duration="736000" />
+      <workItem from="1534408171339" duration="2439000" />
+      <workItem from="1537172505139" duration="40000" />
+      <workItem from="1544068403574" duration="3214000" />
+      <workItem from="1544082285471" duration="184000" />
+      <workItem from="1544154268645" duration="1262000" />
+      <workItem from="1544155558806" duration="1802000" />
+      <workItem from="1545701728523" duration="2026000" />
+      <workItem from="1546824637344" duration="64000" />
+      <workItem from="1546825893309" duration="449000" />
+      <workItem from="1546827516771" duration="51000" />
+      <workItem from="1546827795653" duration="9000" />
+      <workItem from="1546832767614" duration="215000" />
+      <workItem from="1547429779826" duration="12000" />
+      <workItem from="1547774110792" duration="220000" />
+      <workItem from="1547774462057" duration="7000" />
+      <workItem from="1550107403642" duration="21000" />
+      <workItem from="1550107441965" duration="96000" />
+      <workItem from="1550107695819" duration="31000" />
+      <workItem from="1550112503689" duration="8000" />
+      <workItem from="1551149376942" duration="133000" />
+      <workItem from="1551168218856" duration="1000" />
+      <workItem from="1552024568970" duration="17000" />
+      <workItem from="1553650599867" duration="23000" />
+      <workItem from="1553829094536" duration="1000000" />
+      <workItem from="1556163754544" duration="819000" />
+      <workItem from="1556169130112" duration="2000" />
+      <workItem from="1556170332114" duration="105000" />
+      <workItem from="1556171263777" duration="99000" />
+      <workItem from="1556171634999" duration="783000" />
+      <workItem from="1557799810906" duration="58000" />
+      <workItem from="1560826973760" duration="8000" />
+      <workItem from="1561596360809" duration="1620000" />
+      <workItem from="1561606362794" duration="82000" />
+      <workItem from="1561621613436" duration="287000" />
+      <workItem from="1561622670818" duration="125000" />
+      <workItem from="1561622827204" duration="16000" />
+      <workItem from="1561622926365" duration="902000" />
+      <workItem from="1561688370102" duration="827000" />
+      <workItem from="1561942105793" duration="216000" />
+      <workItem from="1562136853263" duration="417000" />
+      <workItem from="1562203568786" duration="1331000" />
+      <workItem from="1562231669510" duration="665000" />
+      <workItem from="1562293220027" duration="442000" />
+      <workItem from="1563419734306" duration="340000" />
+      <workItem from="1563522720183" duration="4685000" />
+      <workItem from="1564363058172" duration="259000" />
+      <workItem from="1564366352229" duration="1019000" />
+      <workItem from="1564367869231" duration="142000" />
+      <workItem from="1564368293587" duration="245000" />
+      <workItem from="1564369110733" duration="63000" />
+      <workItem from="1566443506638" duration="12000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Mybatis-Generator</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>bin</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

@@ -1,0 +1,926 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slk.wph.module.CUS_Copy_Record.mapper.CusCopyRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.slk.wph.module.CUS_Copy_Record.po.CusCopyRecord" >
+    <id column="fid" property="fid" jdbcType="INTEGER" />
+    <result column="order_state" property="orderState" jdbcType="INTEGER" />
+    <result column="idcard_print_state" property="idcardPrintState" jdbcType="INTEGER" />
+    <result column="express_request_state" property="expressRequestState" jdbcType="INTEGER" />
+    <result column="express_request_userid" property="expressRequestUserid" jdbcType="INTEGER" />
+    <result column="express_close_userid" property="expressCloseUserid" jdbcType="INTEGER" />
+    <result column="copy_request_state" property="copyRequestState" jdbcType="INTEGER" />
+    <result column="copy_request_userid" property="copyRequestUserid" jdbcType="INTEGER" />
+    <result column="copy_close_userid" property="copyCloseUserid" jdbcType="INTEGER" />
+    <result column="cus_price_page_fid" property="cusPricePageFid" jdbcType="INTEGER" />
+    <result column="copy_amount" property="copyAmount" jdbcType="INTEGER" />
+    <result column="copy_cost" property="copyCost" jdbcType="DOUBLE" />
+    <result column="copy_page_amount" property="copyPageAmount" jdbcType="INTEGER" />
+    <result column="copy_page_cost" property="copyPageCost" jdbcType="DOUBLE" />
+    <result column="urgent" property="urgent" jdbcType="INTEGER" />
+    <result column="wph_ward_fid" property="wphWardFid" jdbcType="INTEGER" />
+    <result column="wph_ward_name" property="wphWardName" jdbcType="VARCHAR" />
+    <result column="hospitalid" property="hospitalid" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="bedno" property="bedno" jdbcType="VARCHAR" />
+    <result column="region" property="region" jdbcType="VARCHAR" />
+    <result column="datailed_address" property="datailedAddress" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="cus_patient_fid" property="cusPatientFid" jdbcType="INTEGER" />
+    <result column="appoint_time" property="appointTime" jdbcType="TIMESTAMP" />
+    <result column="cancel_time" property="cancelTime" jdbcType="TIMESTAMP" />
+    <result column="commit_time" property="commitTime" jdbcType="TIMESTAMP" />
+    <result column="charge_time" property="chargeTime" jdbcType="TIMESTAMP" />
+    <result column="copy_request_time" property="copyRequestTime" jdbcType="TIMESTAMP" />
+    <result column="copy_close_time" property="copyCloseTime" jdbcType="TIMESTAMP" />
+    <result column="express_request_time" property="expressRequestTime" jdbcType="TIMESTAMP" />
+    <result column="express_close_time" property="expressCloseTime" jdbcType="TIMESTAMP" />
+    <result column="send_express_time" property="sendExpressTime" jdbcType="TIMESTAMP" />
+    <result column="cancel_reason" property="cancelReason" jdbcType="VARCHAR" />
+    <result column="cancel_sign" property="cancelSign" jdbcType="VARCHAR" />
+    <result column="idcard_a" property="idcardA" jdbcType="VARCHAR" />
+    <result column="idcard_b" property="idcardB" jdbcType="VARCHAR" />
+    <result column="paytype" property="paytype" jdbcType="INTEGER" />
+    <result column="copy_idcard_pages" property="copyIdcardPages" jdbcType="INTEGER" />
+    <result column="copy_idcard_amount" property="copyIdcardAmount" jdbcType="DOUBLE" />
+    <result column="express_ordercode" property="expressOrdercode" jdbcType="VARCHAR" />
+    <result column="express_amount" property="expressAmount" jdbcType="VARCHAR" />
+    <result column="surcharge" property="surcharge" jdbcType="VARCHAR" />
+    <result column="modify_userfid" property="modifyUserfid" jdbcType="INTEGER" />
+    <result column="modifyname" property="modifyname" jdbcType="VARCHAR" />
+    <result column="modifydate" property="modifydate" jdbcType="TIMESTAMP" />
+    <result column="copy_record_time" property="copyRecordTime" jdbcType="TIMESTAMP" />
+    <result column="origin" property="origin" jdbcType="INTEGER" />
+    <result column="charge_slip_state" property="chargeSlipState" jdbcType="INTEGER" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    fid, order_state, idcard_print_state, express_request_state, express_request_userid, 
+    express_close_userid, copy_request_state, copy_request_userid, copy_close_userid, 
+    cus_price_page_fid, copy_amount, copy_cost, copy_page_amount, copy_page_cost, urgent, 
+    wph_ward_fid, wph_ward_name, hospitalid, name, bedno, region, datailed_address, phone, 
+    cus_patient_fid, appoint_time, cancel_time, commit_time, charge_time, copy_request_time, 
+    copy_close_time, express_request_time, express_close_time, send_express_time, cancel_reason, 
+    cancel_sign, idcard_a, idcard_b, paytype, copy_idcard_pages, copy_idcard_amount, 
+    express_ordercode, express_amount, surcharge, modify_userfid, modifyname, modifydate, 
+    copy_record_time, origin, charge_slip_state, remarks
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.slk.wph.module.CUS_Copy_Record.po.CusCopyRecordExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from cus_copy_record
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from cus_copy_record
+    where fid = #{fid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from cus_copy_record
+    where fid = #{fid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.slk.wph.module.CUS_Copy_Record.po.CusCopyRecordExample" >
+    delete from cus_copy_record
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.slk.wph.module.CUS_Copy_Record.po.CusCopyRecord" >
+    insert into cus_copy_record (fid, order_state, idcard_print_state, 
+      express_request_state, express_request_userid, 
+      express_close_userid, copy_request_state, copy_request_userid, 
+      copy_close_userid, cus_price_page_fid, copy_amount, 
+      copy_cost, copy_page_amount, copy_page_cost, 
+      urgent, wph_ward_fid, wph_ward_name, 
+      hospitalid, name, bedno, 
+      region, datailed_address, phone, 
+      cus_patient_fid, appoint_time, cancel_time, 
+      commit_time, charge_time, copy_request_time, 
+      copy_close_time, express_request_time, 
+      express_close_time, send_express_time, 
+      cancel_reason, cancel_sign, idcard_a, 
+      idcard_b, paytype, copy_idcard_pages, 
+      copy_idcard_amount, express_ordercode, express_amount, 
+      surcharge, modify_userfid, modifyname, 
+      modifydate, copy_record_time, origin, 
+      charge_slip_state, remarks)
+    values (#{fid,jdbcType=INTEGER}, #{orderState,jdbcType=INTEGER}, #{idcardPrintState,jdbcType=INTEGER}, 
+      #{expressRequestState,jdbcType=INTEGER}, #{expressRequestUserid,jdbcType=INTEGER}, 
+      #{expressCloseUserid,jdbcType=INTEGER}, #{copyRequestState,jdbcType=INTEGER}, #{copyRequestUserid,jdbcType=INTEGER}, 
+      #{copyCloseUserid,jdbcType=INTEGER}, #{cusPricePageFid,jdbcType=INTEGER}, #{copyAmount,jdbcType=INTEGER}, 
+      #{copyCost,jdbcType=DOUBLE}, #{copyPageAmount,jdbcType=INTEGER}, #{copyPageCost,jdbcType=DOUBLE}, 
+      #{urgent,jdbcType=INTEGER}, #{wphWardFid,jdbcType=INTEGER}, #{wphWardName,jdbcType=VARCHAR}, 
+      #{hospitalid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{bedno,jdbcType=VARCHAR}, 
+      #{region,jdbcType=VARCHAR}, #{datailedAddress,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{cusPatientFid,jdbcType=INTEGER}, #{appointTime,jdbcType=TIMESTAMP}, #{cancelTime,jdbcType=TIMESTAMP}, 
+      #{commitTime,jdbcType=TIMESTAMP}, #{chargeTime,jdbcType=TIMESTAMP}, #{copyRequestTime,jdbcType=TIMESTAMP}, 
+      #{copyCloseTime,jdbcType=TIMESTAMP}, #{expressRequestTime,jdbcType=TIMESTAMP}, 
+      #{expressCloseTime,jdbcType=TIMESTAMP}, #{sendExpressTime,jdbcType=TIMESTAMP}, 
+      #{cancelReason,jdbcType=VARCHAR}, #{cancelSign,jdbcType=VARCHAR}, #{idcardA,jdbcType=VARCHAR}, 
+      #{idcardB,jdbcType=VARCHAR}, #{paytype,jdbcType=INTEGER}, #{copyIdcardPages,jdbcType=INTEGER}, 
+      #{copyIdcardAmount,jdbcType=DOUBLE}, #{expressOrdercode,jdbcType=VARCHAR}, #{expressAmount,jdbcType=VARCHAR}, 
+      #{surcharge,jdbcType=VARCHAR}, #{modifyUserfid,jdbcType=INTEGER}, #{modifyname,jdbcType=VARCHAR}, 
+      #{modifydate,jdbcType=TIMESTAMP}, #{copyRecordTime,jdbcType=TIMESTAMP}, #{origin,jdbcType=INTEGER}, 
+      #{chargeSlipState,jdbcType=INTEGER}, #{remarks,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.slk.wph.module.CUS_Copy_Record.po.CusCopyRecord" >
+    insert into cus_copy_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fid != null" >
+        fid,
+      </if>
+      <if test="orderState != null" >
+        order_state,
+      </if>
+      <if test="idcardPrintState != null" >
+        idcard_print_state,
+      </if>
+      <if test="expressRequestState != null" >
+        express_request_state,
+      </if>
+      <if test="expressRequestUserid != null" >
+        express_request_userid,
+      </if>
+      <if test="expressCloseUserid != null" >
+        express_close_userid,
+      </if>
+      <if test="copyRequestState != null" >
+        copy_request_state,
+      </if>
+      <if test="copyRequestUserid != null" >
+        copy_request_userid,
+      </if>
+      <if test="copyCloseUserid != null" >
+        copy_close_userid,
+      </if>
+      <if test="cusPricePageFid != null" >
+        cus_price_page_fid,
+      </if>
+      <if test="copyAmount != null" >
+        copy_amount,
+      </if>
+      <if test="copyCost != null" >
+        copy_cost,
+      </if>
+      <if test="copyPageAmount != null" >
+        copy_page_amount,
+      </if>
+      <if test="copyPageCost != null" >
+        copy_page_cost,
+      </if>
+      <if test="urgent != null" >
+        urgent,
+      </if>
+      <if test="wphWardFid != null" >
+        wph_ward_fid,
+      </if>
+      <if test="wphWardName != null" >
+        wph_ward_name,
+      </if>
+      <if test="hospitalid != null" >
+        hospitalid,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="bedno != null" >
+        bedno,
+      </if>
+      <if test="region != null" >
+        region,
+      </if>
+      <if test="datailedAddress != null" >
+        datailed_address,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="cusPatientFid != null" >
+        cus_patient_fid,
+      </if>
+      <if test="appointTime != null" >
+        appoint_time,
+      </if>
+      <if test="cancelTime != null" >
+        cancel_time,
+      </if>
+      <if test="commitTime != null" >
+        commit_time,
+      </if>
+      <if test="chargeTime != null" >
+        charge_time,
+      </if>
+      <if test="copyRequestTime != null" >
+        copy_request_time,
+      </if>
+      <if test="copyCloseTime != null" >
+        copy_close_time,
+      </if>
+      <if test="expressRequestTime != null" >
+        express_request_time,
+      </if>
+      <if test="expressCloseTime != null" >
+        express_close_time,
+      </if>
+      <if test="sendExpressTime != null" >
+        send_express_time,
+      </if>
+      <if test="cancelReason != null" >
+        cancel_reason,
+      </if>
+      <if test="cancelSign != null" >
+        cancel_sign,
+      </if>
+      <if test="idcardA != null" >
+        idcard_a,
+      </if>
+      <if test="idcardB != null" >
+        idcard_b,
+      </if>
+      <if test="paytype != null" >
+        paytype,
+      </if>
+      <if test="copyIdcardPages != null" >
+        copy_idcard_pages,
+      </if>
+      <if test="copyIdcardAmount != null" >
+        copy_idcard_amount,
+      </if>
+      <if test="expressOrdercode != null" >
+        express_ordercode,
+      </if>
+      <if test="expressAmount != null" >
+        express_amount,
+      </if>
+      <if test="surcharge != null" >
+        surcharge,
+      </if>
+      <if test="modifyUserfid != null" >
+        modify_userfid,
+      </if>
+      <if test="modifyname != null" >
+        modifyname,
+      </if>
+      <if test="modifydate != null" >
+        modifydate,
+      </if>
+      <if test="copyRecordTime != null" >
+        copy_record_time,
+      </if>
+      <if test="origin != null" >
+        origin,
+      </if>
+      <if test="chargeSlipState != null" >
+        charge_slip_state,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fid != null" >
+        #{fid,jdbcType=INTEGER},
+      </if>
+      <if test="orderState != null" >
+        #{orderState,jdbcType=INTEGER},
+      </if>
+      <if test="idcardPrintState != null" >
+        #{idcardPrintState,jdbcType=INTEGER},
+      </if>
+      <if test="expressRequestState != null" >
+        #{expressRequestState,jdbcType=INTEGER},
+      </if>
+      <if test="expressRequestUserid != null" >
+        #{expressRequestUserid,jdbcType=INTEGER},
+      </if>
+      <if test="expressCloseUserid != null" >
+        #{expressCloseUserid,jdbcType=INTEGER},
+      </if>
+      <if test="copyRequestState != null" >
+        #{copyRequestState,jdbcType=INTEGER},
+      </if>
+      <if test="copyRequestUserid != null" >
+        #{copyRequestUserid,jdbcType=INTEGER},
+      </if>
+      <if test="copyCloseUserid != null" >
+        #{copyCloseUserid,jdbcType=INTEGER},
+      </if>
+      <if test="cusPricePageFid != null" >
+        #{cusPricePageFid,jdbcType=INTEGER},
+      </if>
+      <if test="copyAmount != null" >
+        #{copyAmount,jdbcType=INTEGER},
+      </if>
+      <if test="copyCost != null" >
+        #{copyCost,jdbcType=DOUBLE},
+      </if>
+      <if test="copyPageAmount != null" >
+        #{copyPageAmount,jdbcType=INTEGER},
+      </if>
+      <if test="copyPageCost != null" >
+        #{copyPageCost,jdbcType=DOUBLE},
+      </if>
+      <if test="urgent != null" >
+        #{urgent,jdbcType=INTEGER},
+      </if>
+      <if test="wphWardFid != null" >
+        #{wphWardFid,jdbcType=INTEGER},
+      </if>
+      <if test="wphWardName != null" >
+        #{wphWardName,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalid != null" >
+        #{hospitalid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="bedno != null" >
+        #{bedno,jdbcType=VARCHAR},
+      </if>
+      <if test="region != null" >
+        #{region,jdbcType=VARCHAR},
+      </if>
+      <if test="datailedAddress != null" >
+        #{datailedAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="cusPatientFid != null" >
+        #{cusPatientFid,jdbcType=INTEGER},
+      </if>
+      <if test="appointTime != null" >
+        #{appointTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cancelTime != null" >
+        #{cancelTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="commitTime != null" >
+        #{commitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chargeTime != null" >
+        #{chargeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="copyRequestTime != null" >
+        #{copyRequestTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="copyCloseTime != null" >
+        #{copyCloseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expressRequestTime != null" >
+        #{expressRequestTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expressCloseTime != null" >
+        #{expressCloseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendExpressTime != null" >
+        #{sendExpressTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cancelReason != null" >
+        #{cancelReason,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelSign != null" >
+        #{cancelSign,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardA != null" >
+        #{idcardA,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardB != null" >
+        #{idcardB,jdbcType=VARCHAR},
+      </if>
+      <if test="paytype != null" >
+        #{paytype,jdbcType=INTEGER},
+      </if>
+      <if test="copyIdcardPages != null" >
+        #{copyIdcardPages,jdbcType=INTEGER},
+      </if>
+      <if test="copyIdcardAmount != null" >
+        #{copyIdcardAmount,jdbcType=DOUBLE},
+      </if>
+      <if test="expressOrdercode != null" >
+        #{expressOrdercode,jdbcType=VARCHAR},
+      </if>
+      <if test="expressAmount != null" >
+        #{expressAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="surcharge != null" >
+        #{surcharge,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyUserfid != null" >
+        #{modifyUserfid,jdbcType=INTEGER},
+      </if>
+      <if test="modifyname != null" >
+        #{modifyname,jdbcType=VARCHAR},
+      </if>
+      <if test="modifydate != null" >
+        #{modifydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="copyRecordTime != null" >
+        #{copyRecordTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="origin != null" >
+        #{origin,jdbcType=INTEGER},
+      </if>
+      <if test="chargeSlipState != null" >
+        #{chargeSlipState,jdbcType=INTEGER},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.slk.wph.module.CUS_Copy_Record.po.CusCopyRecordExample" resultType="java.lang.Integer" >
+    select count(*) from cus_copy_record
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update cus_copy_record
+    <set >
+      <if test="record.fid != null" >
+        fid = #{record.fid,jdbcType=INTEGER},
+      </if>
+      <if test="record.orderState != null" >
+        order_state = #{record.orderState,jdbcType=INTEGER},
+      </if>
+      <if test="record.idcardPrintState != null" >
+        idcard_print_state = #{record.idcardPrintState,jdbcType=INTEGER},
+      </if>
+      <if test="record.expressRequestState != null" >
+        express_request_state = #{record.expressRequestState,jdbcType=INTEGER},
+      </if>
+      <if test="record.expressRequestUserid != null" >
+        express_request_userid = #{record.expressRequestUserid,jdbcType=INTEGER},
+      </if>
+      <if test="record.expressCloseUserid != null" >
+        express_close_userid = #{record.expressCloseUserid,jdbcType=INTEGER},
+      </if>
+      <if test="record.copyRequestState != null" >
+        copy_request_state = #{record.copyRequestState,jdbcType=INTEGER},
+      </if>
+      <if test="record.copyRequestUserid != null" >
+        copy_request_userid = #{record.copyRequestUserid,jdbcType=INTEGER},
+      </if>
+      <if test="record.copyCloseUserid != null" >
+        copy_close_userid = #{record.copyCloseUserid,jdbcType=INTEGER},
+      </if>
+      <if test="record.cusPricePageFid != null" >
+        cus_price_page_fid = #{record.cusPricePageFid,jdbcType=INTEGER},
+      </if>
+      <if test="record.copyAmount != null" >
+        copy_amount = #{record.copyAmount,jdbcType=INTEGER},
+      </if>
+      <if test="record.copyCost != null" >
+        copy_cost = #{record.copyCost,jdbcType=DOUBLE},
+      </if>
+      <if test="record.copyPageAmount != null" >
+        copy_page_amount = #{record.copyPageAmount,jdbcType=INTEGER},
+      </if>
+      <if test="record.copyPageCost != null" >
+        copy_page_cost = #{record.copyPageCost,jdbcType=DOUBLE},
+      </if>
+      <if test="record.urgent != null" >
+        urgent = #{record.urgent,jdbcType=INTEGER},
+      </if>
+      <if test="record.wphWardFid != null" >
+        wph_ward_fid = #{record.wphWardFid,jdbcType=INTEGER},
+      </if>
+      <if test="record.wphWardName != null" >
+        wph_ward_name = #{record.wphWardName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hospitalid != null" >
+        hospitalid = #{record.hospitalid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bedno != null" >
+        bedno = #{record.bedno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.region != null" >
+        region = #{record.region,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datailedAddress != null" >
+        datailed_address = #{record.datailedAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phone != null" >
+        phone = #{record.phone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cusPatientFid != null" >
+        cus_patient_fid = #{record.cusPatientFid,jdbcType=INTEGER},
+      </if>
+      <if test="record.appointTime != null" >
+        appoint_time = #{record.appointTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.cancelTime != null" >
+        cancel_time = #{record.cancelTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.commitTime != null" >
+        commit_time = #{record.commitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.chargeTime != null" >
+        charge_time = #{record.chargeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.copyRequestTime != null" >
+        copy_request_time = #{record.copyRequestTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.copyCloseTime != null" >
+        copy_close_time = #{record.copyCloseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.expressRequestTime != null" >
+        express_request_time = #{record.expressRequestTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.expressCloseTime != null" >
+        express_close_time = #{record.expressCloseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.sendExpressTime != null" >
+        send_express_time = #{record.sendExpressTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.cancelReason != null" >
+        cancel_reason = #{record.cancelReason,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cancelSign != null" >
+        cancel_sign = #{record.cancelSign,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idcardA != null" >
+        idcard_a = #{record.idcardA,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idcardB != null" >
+        idcard_b = #{record.idcardB,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paytype != null" >
+        paytype = #{record.paytype,jdbcType=INTEGER},
+      </if>
+      <if test="record.copyIdcardPages != null" >
+        copy_idcard_pages = #{record.copyIdcardPages,jdbcType=INTEGER},
+      </if>
+      <if test="record.copyIdcardAmount != null" >
+        copy_idcard_amount = #{record.copyIdcardAmount,jdbcType=DOUBLE},
+      </if>
+      <if test="record.expressOrdercode != null" >
+        express_ordercode = #{record.expressOrdercode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.expressAmount != null" >
+        express_amount = #{record.expressAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.surcharge != null" >
+        surcharge = #{record.surcharge,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modifyUserfid != null" >
+        modify_userfid = #{record.modifyUserfid,jdbcType=INTEGER},
+      </if>
+      <if test="record.modifyname != null" >
+        modifyname = #{record.modifyname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modifydate != null" >
+        modifydate = #{record.modifydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.copyRecordTime != null" >
+        copy_record_time = #{record.copyRecordTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.origin != null" >
+        origin = #{record.origin,jdbcType=INTEGER},
+      </if>
+      <if test="record.chargeSlipState != null" >
+        charge_slip_state = #{record.chargeSlipState,jdbcType=INTEGER},
+      </if>
+      <if test="record.remarks != null" >
+        remarks = #{record.remarks,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update cus_copy_record
+    set fid = #{record.fid,jdbcType=INTEGER},
+      order_state = #{record.orderState,jdbcType=INTEGER},
+      idcard_print_state = #{record.idcardPrintState,jdbcType=INTEGER},
+      express_request_state = #{record.expressRequestState,jdbcType=INTEGER},
+      express_request_userid = #{record.expressRequestUserid,jdbcType=INTEGER},
+      express_close_userid = #{record.expressCloseUserid,jdbcType=INTEGER},
+      copy_request_state = #{record.copyRequestState,jdbcType=INTEGER},
+      copy_request_userid = #{record.copyRequestUserid,jdbcType=INTEGER},
+      copy_close_userid = #{record.copyCloseUserid,jdbcType=INTEGER},
+      cus_price_page_fid = #{record.cusPricePageFid,jdbcType=INTEGER},
+      copy_amount = #{record.copyAmount,jdbcType=INTEGER},
+      copy_cost = #{record.copyCost,jdbcType=DOUBLE},
+      copy_page_amount = #{record.copyPageAmount,jdbcType=INTEGER},
+      copy_page_cost = #{record.copyPageCost,jdbcType=DOUBLE},
+      urgent = #{record.urgent,jdbcType=INTEGER},
+      wph_ward_fid = #{record.wphWardFid,jdbcType=INTEGER},
+      wph_ward_name = #{record.wphWardName,jdbcType=VARCHAR},
+      hospitalid = #{record.hospitalid,jdbcType=VARCHAR},
+      name = #{record.name,jdbcType=VARCHAR},
+      bedno = #{record.bedno,jdbcType=VARCHAR},
+      region = #{record.region,jdbcType=VARCHAR},
+      datailed_address = #{record.datailedAddress,jdbcType=VARCHAR},
+      phone = #{record.phone,jdbcType=VARCHAR},
+      cus_patient_fid = #{record.cusPatientFid,jdbcType=INTEGER},
+      appoint_time = #{record.appointTime,jdbcType=TIMESTAMP},
+      cancel_time = #{record.cancelTime,jdbcType=TIMESTAMP},
+      commit_time = #{record.commitTime,jdbcType=TIMESTAMP},
+      charge_time = #{record.chargeTime,jdbcType=TIMESTAMP},
+      copy_request_time = #{record.copyRequestTime,jdbcType=TIMESTAMP},
+      copy_close_time = #{record.copyCloseTime,jdbcType=TIMESTAMP},
+      express_request_time = #{record.expressRequestTime,jdbcType=TIMESTAMP},
+      express_close_time = #{record.expressCloseTime,jdbcType=TIMESTAMP},
+      send_express_time = #{record.sendExpressTime,jdbcType=TIMESTAMP},
+      cancel_reason = #{record.cancelReason,jdbcType=VARCHAR},
+      cancel_sign = #{record.cancelSign,jdbcType=VARCHAR},
+      idcard_a = #{record.idcardA,jdbcType=VARCHAR},
+      idcard_b = #{record.idcardB,jdbcType=VARCHAR},
+      paytype = #{record.paytype,jdbcType=INTEGER},
+      copy_idcard_pages = #{record.copyIdcardPages,jdbcType=INTEGER},
+      copy_idcard_amount = #{record.copyIdcardAmount,jdbcType=DOUBLE},
+      express_ordercode = #{record.expressOrdercode,jdbcType=VARCHAR},
+      express_amount = #{record.expressAmount,jdbcType=VARCHAR},
+      surcharge = #{record.surcharge,jdbcType=VARCHAR},
+      modify_userfid = #{record.modifyUserfid,jdbcType=INTEGER},
+      modifyname = #{record.modifyname,jdbcType=VARCHAR},
+      modifydate = #{record.modifydate,jdbcType=TIMESTAMP},
+      copy_record_time = #{record.copyRecordTime,jdbcType=TIMESTAMP},
+      origin = #{record.origin,jdbcType=INTEGER},
+      charge_slip_state = #{record.chargeSlipState,jdbcType=INTEGER},
+      remarks = #{record.remarks,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.slk.wph.module.CUS_Copy_Record.po.CusCopyRecord" >
+    update cus_copy_record
+    <set >
+      <if test="orderState != null" >
+        order_state = #{orderState,jdbcType=INTEGER},
+      </if>
+      <if test="idcardPrintState != null" >
+        idcard_print_state = #{idcardPrintState,jdbcType=INTEGER},
+      </if>
+      <if test="expressRequestState != null" >
+        express_request_state = #{expressRequestState,jdbcType=INTEGER},
+      </if>
+      <if test="expressRequestUserid != null" >
+        express_request_userid = #{expressRequestUserid,jdbcType=INTEGER},
+      </if>
+      <if test="expressCloseUserid != null" >
+        express_close_userid = #{expressCloseUserid,jdbcType=INTEGER},
+      </if>
+      <if test="copyRequestState != null" >
+        copy_request_state = #{copyRequestState,jdbcType=INTEGER},
+      </if>
+      <if test="copyRequestUserid != null" >
+        copy_request_userid = #{copyRequestUserid,jdbcType=INTEGER},
+      </if>
+      <if test="copyCloseUserid != null" >
+        copy_close_userid = #{copyCloseUserid,jdbcType=INTEGER},
+      </if>
+      <if test="cusPricePageFid != null" >
+        cus_price_page_fid = #{cusPricePageFid,jdbcType=INTEGER},
+      </if>
+      <if test="copyAmount != null" >
+        copy_amount = #{copyAmount,jdbcType=INTEGER},
+      </if>
+      <if test="copyCost != null" >
+        copy_cost = #{copyCost,jdbcType=DOUBLE},
+      </if>
+      <if test="copyPageAmount != null" >
+        copy_page_amount = #{copyPageAmount,jdbcType=INTEGER},
+      </if>
+      <if test="copyPageCost != null" >
+        copy_page_cost = #{copyPageCost,jdbcType=DOUBLE},
+      </if>
+      <if test="urgent != null" >
+        urgent = #{urgent,jdbcType=INTEGER},
+      </if>
+      <if test="wphWardFid != null" >
+        wph_ward_fid = #{wphWardFid,jdbcType=INTEGER},
+      </if>
+      <if test="wphWardName != null" >
+        wph_ward_name = #{wphWardName,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalid != null" >
+        hospitalid = #{hospitalid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="bedno != null" >
+        bedno = #{bedno,jdbcType=VARCHAR},
+      </if>
+      <if test="region != null" >
+        region = #{region,jdbcType=VARCHAR},
+      </if>
+      <if test="datailedAddress != null" >
+        datailed_address = #{datailedAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="cusPatientFid != null" >
+        cus_patient_fid = #{cusPatientFid,jdbcType=INTEGER},
+      </if>
+      <if test="appointTime != null" >
+        appoint_time = #{appointTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cancelTime != null" >
+        cancel_time = #{cancelTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="commitTime != null" >
+        commit_time = #{commitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chargeTime != null" >
+        charge_time = #{chargeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="copyRequestTime != null" >
+        copy_request_time = #{copyRequestTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="copyCloseTime != null" >
+        copy_close_time = #{copyCloseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expressRequestTime != null" >
+        express_request_time = #{expressRequestTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expressCloseTime != null" >
+        express_close_time = #{expressCloseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendExpressTime != null" >
+        send_express_time = #{sendExpressTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cancelReason != null" >
+        cancel_reason = #{cancelReason,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelSign != null" >
+        cancel_sign = #{cancelSign,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardA != null" >
+        idcard_a = #{idcardA,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardB != null" >
+        idcard_b = #{idcardB,jdbcType=VARCHAR},
+      </if>
+      <if test="paytype != null" >
+        paytype = #{paytype,jdbcType=INTEGER},
+      </if>
+      <if test="copyIdcardPages != null" >
+        copy_idcard_pages = #{copyIdcardPages,jdbcType=INTEGER},
+      </if>
+      <if test="copyIdcardAmount != null" >
+        copy_idcard_amount = #{copyIdcardAmount,jdbcType=DOUBLE},
+      </if>
+      <if test="expressOrdercode != null" >
+        express_ordercode = #{expressOrdercode,jdbcType=VARCHAR},
+      </if>
+      <if test="expressAmount != null" >
+        express_amount = #{expressAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="surcharge != null" >
+        surcharge = #{surcharge,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyUserfid != null" >
+        modify_userfid = #{modifyUserfid,jdbcType=INTEGER},
+      </if>
+      <if test="modifyname != null" >
+        modifyname = #{modifyname,jdbcType=VARCHAR},
+      </if>
+      <if test="modifydate != null" >
+        modifydate = #{modifydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="copyRecordTime != null" >
+        copy_record_time = #{copyRecordTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="origin != null" >
+        origin = #{origin,jdbcType=INTEGER},
+      </if>
+      <if test="chargeSlipState != null" >
+        charge_slip_state = #{chargeSlipState,jdbcType=INTEGER},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where fid = #{fid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.slk.wph.module.CUS_Copy_Record.po.CusCopyRecord" >
+    update cus_copy_record
+    set order_state = #{orderState,jdbcType=INTEGER},
+      idcard_print_state = #{idcardPrintState,jdbcType=INTEGER},
+      express_request_state = #{expressRequestState,jdbcType=INTEGER},
+      express_request_userid = #{expressRequestUserid,jdbcType=INTEGER},
+      express_close_userid = #{expressCloseUserid,jdbcType=INTEGER},
+      copy_request_state = #{copyRequestState,jdbcType=INTEGER},
+      copy_request_userid = #{copyRequestUserid,jdbcType=INTEGER},
+      copy_close_userid = #{copyCloseUserid,jdbcType=INTEGER},
+      cus_price_page_fid = #{cusPricePageFid,jdbcType=INTEGER},
+      copy_amount = #{copyAmount,jdbcType=INTEGER},
+      copy_cost = #{copyCost,jdbcType=DOUBLE},
+      copy_page_amount = #{copyPageAmount,jdbcType=INTEGER},
+      copy_page_cost = #{copyPageCost,jdbcType=DOUBLE},
+      urgent = #{urgent,jdbcType=INTEGER},
+      wph_ward_fid = #{wphWardFid,jdbcType=INTEGER},
+      wph_ward_name = #{wphWardName,jdbcType=VARCHAR},
+      hospitalid = #{hospitalid,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      bedno = #{bedno,jdbcType=VARCHAR},
+      region = #{region,jdbcType=VARCHAR},
+      datailed_address = #{datailedAddress,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      cus_patient_fid = #{cusPatientFid,jdbcType=INTEGER},
+      appoint_time = #{appointTime,jdbcType=TIMESTAMP},
+      cancel_time = #{cancelTime,jdbcType=TIMESTAMP},
+      commit_time = #{commitTime,jdbcType=TIMESTAMP},
+      charge_time = #{chargeTime,jdbcType=TIMESTAMP},
+      copy_request_time = #{copyRequestTime,jdbcType=TIMESTAMP},
+      copy_close_time = #{copyCloseTime,jdbcType=TIMESTAMP},
+      express_request_time = #{expressRequestTime,jdbcType=TIMESTAMP},
+      express_close_time = #{expressCloseTime,jdbcType=TIMESTAMP},
+      send_express_time = #{sendExpressTime,jdbcType=TIMESTAMP},
+      cancel_reason = #{cancelReason,jdbcType=VARCHAR},
+      cancel_sign = #{cancelSign,jdbcType=VARCHAR},
+      idcard_a = #{idcardA,jdbcType=VARCHAR},
+      idcard_b = #{idcardB,jdbcType=VARCHAR},
+      paytype = #{paytype,jdbcType=INTEGER},
+      copy_idcard_pages = #{copyIdcardPages,jdbcType=INTEGER},
+      copy_idcard_amount = #{copyIdcardAmount,jdbcType=DOUBLE},
+      express_ordercode = #{expressOrdercode,jdbcType=VARCHAR},
+      express_amount = #{expressAmount,jdbcType=VARCHAR},
+      surcharge = #{surcharge,jdbcType=VARCHAR},
+      modify_userfid = #{modifyUserfid,jdbcType=INTEGER},
+      modifyname = #{modifyname,jdbcType=VARCHAR},
+      modifydate = #{modifydate,jdbcType=TIMESTAMP},
+      copy_record_time = #{copyRecordTime,jdbcType=TIMESTAMP},
+      origin = #{origin,jdbcType=INTEGER},
+      charge_slip_state = #{chargeSlipState,jdbcType=INTEGER},
+      remarks = #{remarks,jdbcType=VARCHAR}
+    where fid = #{fid,jdbcType=INTEGER}
+  </update>
+</mapper>

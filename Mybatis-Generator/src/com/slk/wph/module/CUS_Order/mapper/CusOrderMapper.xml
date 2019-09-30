@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slk.wph.module.CUS_Order.mapper.CusOrderMapper" >
+  <resultMap id="BaseResultMap" type="com.slk.wph.module.CUS_Order.po.CusOrder" >
+    <id column="fid" property="fid" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="VARCHAR" />
+    <result column="ordercode" property="ordercode" jdbcType="VARCHAR" />
+    <result column="paytype" property="paytype" jdbcType="INTEGER" />
+    <result column="ordertype" property="ordertype" jdbcType="INTEGER" />
+    <result column="busness_fid" property="busnessFid" jdbcType="INTEGER" />
+    <result column="amount" property="amount" jdbcType="DOUBLE" />
+    <result column="paytime" property="paytime" jdbcType="TIMESTAMP" />
+    <result column="payerinfo" property="payerinfo" jdbcType="VARCHAR" />
+    <result column="hospitalid" property="hospitalid" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="modify_userfid" property="modifyUserfid" jdbcType="INTEGER" />
+    <result column="modifyname" property="modifyname" jdbcType="VARCHAR" />
+    <result column="modifydate" property="modifydate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    fid, title, state, ordercode, paytype, ordertype, busness_fid, amount, paytime, payerinfo, 
+    hospitalid, remark, modify_userfid, modifyname, modifydate
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.slk.wph.module.CUS_Order.po.CusOrderExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from cus_order
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from cus_order
+    where fid = #{fid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from cus_order
+    where fid = #{fid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.slk.wph.module.CUS_Order.po.CusOrderExample" >
+    delete from cus_order
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.slk.wph.module.CUS_Order.po.CusOrder" >
+    insert into cus_order (fid, title, state, 
+      ordercode, paytype, ordertype, 
+      busness_fid, amount, paytime, 
+      payerinfo, hospitalid, remark, 
+      modify_userfid, modifyname, modifydate
+      )
+    values (#{fid,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR}, 
+      #{ordercode,jdbcType=VARCHAR}, #{paytype,jdbcType=INTEGER}, #{ordertype,jdbcType=INTEGER}, 
+      #{busnessFid,jdbcType=INTEGER}, #{amount,jdbcType=DOUBLE}, #{paytime,jdbcType=TIMESTAMP}, 
+      #{payerinfo,jdbcType=VARCHAR}, #{hospitalid,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{modifyUserfid,jdbcType=INTEGER}, #{modifyname,jdbcType=VARCHAR}, #{modifydate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.slk.wph.module.CUS_Order.po.CusOrder" >
+    insert into cus_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fid != null" >
+        fid,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="ordercode != null" >
+        ordercode,
+      </if>
+      <if test="paytype != null" >
+        paytype,
+      </if>
+      <if test="ordertype != null" >
+        ordertype,
+      </if>
+      <if test="busnessFid != null" >
+        busness_fid,
+      </if>
+      <if test="amount != null" >
+        amount,
+      </if>
+      <if test="paytime != null" >
+        paytime,
+      </if>
+      <if test="payerinfo != null" >
+        payerinfo,
+      </if>
+      <if test="hospitalid != null" >
+        hospitalid,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="modifyUserfid != null" >
+        modify_userfid,
+      </if>
+      <if test="modifyname != null" >
+        modifyname,
+      </if>
+      <if test="modifydate != null" >
+        modifydate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fid != null" >
+        #{fid,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="ordercode != null" >
+        #{ordercode,jdbcType=VARCHAR},
+      </if>
+      <if test="paytype != null" >
+        #{paytype,jdbcType=INTEGER},
+      </if>
+      <if test="ordertype != null" >
+        #{ordertype,jdbcType=INTEGER},
+      </if>
+      <if test="busnessFid != null" >
+        #{busnessFid,jdbcType=INTEGER},
+      </if>
+      <if test="amount != null" >
+        #{amount,jdbcType=DOUBLE},
+      </if>
+      <if test="paytime != null" >
+        #{paytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payerinfo != null" >
+        #{payerinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalid != null" >
+        #{hospitalid,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyUserfid != null" >
+        #{modifyUserfid,jdbcType=INTEGER},
+      </if>
+      <if test="modifyname != null" >
+        #{modifyname,jdbcType=VARCHAR},
+      </if>
+      <if test="modifydate != null" >
+        #{modifydate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.slk.wph.module.CUS_Order.po.CusOrderExample" resultType="java.lang.Integer" >
+    select count(*) from cus_order
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update cus_order
+    <set >
+      <if test="record.fid != null" >
+        fid = #{record.fid,jdbcType=INTEGER},
+      </if>
+      <if test="record.title != null" >
+        title = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.state != null" >
+        state = #{record.state,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ordercode != null" >
+        ordercode = #{record.ordercode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paytype != null" >
+        paytype = #{record.paytype,jdbcType=INTEGER},
+      </if>
+      <if test="record.ordertype != null" >
+        ordertype = #{record.ordertype,jdbcType=INTEGER},
+      </if>
+      <if test="record.busnessFid != null" >
+        busness_fid = #{record.busnessFid,jdbcType=INTEGER},
+      </if>
+      <if test="record.amount != null" >
+        amount = #{record.amount,jdbcType=DOUBLE},
+      </if>
+      <if test="record.paytime != null" >
+        paytime = #{record.paytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.payerinfo != null" >
+        payerinfo = #{record.payerinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hospitalid != null" >
+        hospitalid = #{record.hospitalid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null" >
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modifyUserfid != null" >
+        modify_userfid = #{record.modifyUserfid,jdbcType=INTEGER},
+      </if>
+      <if test="record.modifyname != null" >
+        modifyname = #{record.modifyname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modifydate != null" >
+        modifydate = #{record.modifydate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update cus_order
+    set fid = #{record.fid,jdbcType=INTEGER},
+      title = #{record.title,jdbcType=VARCHAR},
+      state = #{record.state,jdbcType=VARCHAR},
+      ordercode = #{record.ordercode,jdbcType=VARCHAR},
+      paytype = #{record.paytype,jdbcType=INTEGER},
+      ordertype = #{record.ordertype,jdbcType=INTEGER},
+      busness_fid = #{record.busnessFid,jdbcType=INTEGER},
+      amount = #{record.amount,jdbcType=DOUBLE},
+      paytime = #{record.paytime,jdbcType=TIMESTAMP},
+      payerinfo = #{record.payerinfo,jdbcType=VARCHAR},
+      hospitalid = #{record.hospitalid,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      modify_userfid = #{record.modifyUserfid,jdbcType=INTEGER},
+      modifyname = #{record.modifyname,jdbcType=VARCHAR},
+      modifydate = #{record.modifydate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.slk.wph.module.CUS_Order.po.CusOrder" >
+    update cus_order
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="ordercode != null" >
+        ordercode = #{ordercode,jdbcType=VARCHAR},
+      </if>
+      <if test="paytype != null" >
+        paytype = #{paytype,jdbcType=INTEGER},
+      </if>
+      <if test="ordertype != null" >
+        ordertype = #{ordertype,jdbcType=INTEGER},
+      </if>
+      <if test="busnessFid != null" >
+        busness_fid = #{busnessFid,jdbcType=INTEGER},
+      </if>
+      <if test="amount != null" >
+        amount = #{amount,jdbcType=DOUBLE},
+      </if>
+      <if test="paytime != null" >
+        paytime = #{paytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payerinfo != null" >
+        payerinfo = #{payerinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalid != null" >
+        hospitalid = #{hospitalid,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyUserfid != null" >
+        modify_userfid = #{modifyUserfid,jdbcType=INTEGER},
+      </if>
+      <if test="modifyname != null" >
+        modifyname = #{modifyname,jdbcType=VARCHAR},
+      </if>
+      <if test="modifydate != null" >
+        modifydate = #{modifydate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where fid = #{fid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.slk.wph.module.CUS_Order.po.CusOrder" >
+    update cus_order
+    set title = #{title,jdbcType=VARCHAR},
+      state = #{state,jdbcType=VARCHAR},
+      ordercode = #{ordercode,jdbcType=VARCHAR},
+      paytype = #{paytype,jdbcType=INTEGER},
+      ordertype = #{ordertype,jdbcType=INTEGER},
+      busness_fid = #{busnessFid,jdbcType=INTEGER},
+      amount = #{amount,jdbcType=DOUBLE},
+      paytime = #{paytime,jdbcType=TIMESTAMP},
+      payerinfo = #{payerinfo,jdbcType=VARCHAR},
+      hospitalid = #{hospitalid,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      modify_userfid = #{modifyUserfid,jdbcType=INTEGER},
+      modifyname = #{modifyname,jdbcType=VARCHAR},
+      modifydate = #{modifydate,jdbcType=TIMESTAMP}
+    where fid = #{fid,jdbcType=INTEGER}
+  </update>
+</mapper>

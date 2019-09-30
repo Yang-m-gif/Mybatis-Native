@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slk.wph.module.CUS_Price.mapper.CusPriceMapper" >
+  <resultMap id="BaseResultMap" type="com.slk.wph.module.CUS_Price.po.CusPrice" >
+    <id column="fid" property="fid" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="hospital_fees" property="hospitalFees" jdbcType="VARCHAR" />
+    <result column="copy_1" property="copy1" jdbcType="DOUBLE" />
+    <result column="copy_2" property="copy2" jdbcType="DOUBLE" />
+    <result column="copy_3" property="copy3" jdbcType="DOUBLE" />
+    <result column="copy_4" property="copy4" jdbcType="DOUBLE" />
+    <result column="copy_5" property="copy5" jdbcType="DOUBLE" />
+    <result column="copy_gt5" property="copyGt5" jdbcType="DOUBLE" />
+    <result column="modify_userfid" property="modifyUserfid" jdbcType="INTEGER" />
+    <result column="modifyname" property="modifyname" jdbcType="VARCHAR" />
+    <result column="modifydate" property="modifydate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    fid, type, hospital_fees, copy_1, copy_2, copy_3, copy_4, copy_5, copy_gt5, modify_userfid, 
+    modifyname, modifydate
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.slk.wph.module.CUS_Price.po.CusPriceExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from cus_price
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from cus_price
+    where fid = #{fid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from cus_price
+    where fid = #{fid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.slk.wph.module.CUS_Price.po.CusPriceExample" >
+    delete from cus_price
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.slk.wph.module.CUS_Price.po.CusPrice" >
+    insert into cus_price (fid, type, hospital_fees, 
+      copy_1, copy_2, copy_3, copy_4, 
+      copy_5, copy_gt5, modify_userfid, 
+      modifyname, modifydate)
+    values (#{fid,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}, #{hospitalFees,jdbcType=VARCHAR}, 
+      #{copy1,jdbcType=DOUBLE}, #{copy2,jdbcType=DOUBLE}, #{copy3,jdbcType=DOUBLE}, #{copy4,jdbcType=DOUBLE}, 
+      #{copy5,jdbcType=DOUBLE}, #{copyGt5,jdbcType=DOUBLE}, #{modifyUserfid,jdbcType=INTEGER}, 
+      #{modifyname,jdbcType=VARCHAR}, #{modifydate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.slk.wph.module.CUS_Price.po.CusPrice" >
+    insert into cus_price
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fid != null" >
+        fid,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="hospitalFees != null" >
+        hospital_fees,
+      </if>
+      <if test="copy1 != null" >
+        copy_1,
+      </if>
+      <if test="copy2 != null" >
+        copy_2,
+      </if>
+      <if test="copy3 != null" >
+        copy_3,
+      </if>
+      <if test="copy4 != null" >
+        copy_4,
+      </if>
+      <if test="copy5 != null" >
+        copy_5,
+      </if>
+      <if test="copyGt5 != null" >
+        copy_gt5,
+      </if>
+      <if test="modifyUserfid != null" >
+        modify_userfid,
+      </if>
+      <if test="modifyname != null" >
+        modifyname,
+      </if>
+      <if test="modifydate != null" >
+        modifydate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fid != null" >
+        #{fid,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalFees != null" >
+        #{hospitalFees,jdbcType=VARCHAR},
+      </if>
+      <if test="copy1 != null" >
+        #{copy1,jdbcType=DOUBLE},
+      </if>
+      <if test="copy2 != null" >
+        #{copy2,jdbcType=DOUBLE},
+      </if>
+      <if test="copy3 != null" >
+        #{copy3,jdbcType=DOUBLE},
+      </if>
+      <if test="copy4 != null" >
+        #{copy4,jdbcType=DOUBLE},
+      </if>
+      <if test="copy5 != null" >
+        #{copy5,jdbcType=DOUBLE},
+      </if>
+      <if test="copyGt5 != null" >
+        #{copyGt5,jdbcType=DOUBLE},
+      </if>
+      <if test="modifyUserfid != null" >
+        #{modifyUserfid,jdbcType=INTEGER},
+      </if>
+      <if test="modifyname != null" >
+        #{modifyname,jdbcType=VARCHAR},
+      </if>
+      <if test="modifydate != null" >
+        #{modifydate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.slk.wph.module.CUS_Price.po.CusPriceExample" resultType="java.lang.Integer" >
+    select count(*) from cus_price
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update cus_price
+    <set >
+      <if test="record.fid != null" >
+        fid = #{record.fid,jdbcType=INTEGER},
+      </if>
+      <if test="record.type != null" >
+        type = #{record.type,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hospitalFees != null" >
+        hospital_fees = #{record.hospitalFees,jdbcType=VARCHAR},
+      </if>
+      <if test="record.copy1 != null" >
+        copy_1 = #{record.copy1,jdbcType=DOUBLE},
+      </if>
+      <if test="record.copy2 != null" >
+        copy_2 = #{record.copy2,jdbcType=DOUBLE},
+      </if>
+      <if test="record.copy3 != null" >
+        copy_3 = #{record.copy3,jdbcType=DOUBLE},
+      </if>
+      <if test="record.copy4 != null" >
+        copy_4 = #{record.copy4,jdbcType=DOUBLE},
+      </if>
+      <if test="record.copy5 != null" >
+        copy_5 = #{record.copy5,jdbcType=DOUBLE},
+      </if>
+      <if test="record.copyGt5 != null" >
+        copy_gt5 = #{record.copyGt5,jdbcType=DOUBLE},
+      </if>
+      <if test="record.modifyUserfid != null" >
+        modify_userfid = #{record.modifyUserfid,jdbcType=INTEGER},
+      </if>
+      <if test="record.modifyname != null" >
+        modifyname = #{record.modifyname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modifydate != null" >
+        modifydate = #{record.modifydate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update cus_price
+    set fid = #{record.fid,jdbcType=INTEGER},
+      type = #{record.type,jdbcType=VARCHAR},
+      hospital_fees = #{record.hospitalFees,jdbcType=VARCHAR},
+      copy_1 = #{record.copy1,jdbcType=DOUBLE},
+      copy_2 = #{record.copy2,jdbcType=DOUBLE},
+      copy_3 = #{record.copy3,jdbcType=DOUBLE},
+      copy_4 = #{record.copy4,jdbcType=DOUBLE},
+      copy_5 = #{record.copy5,jdbcType=DOUBLE},
+      copy_gt5 = #{record.copyGt5,jdbcType=DOUBLE},
+      modify_userfid = #{record.modifyUserfid,jdbcType=INTEGER},
+      modifyname = #{record.modifyname,jdbcType=VARCHAR},
+      modifydate = #{record.modifydate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.slk.wph.module.CUS_Price.po.CusPrice" >
+    update cus_price
+    <set >
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalFees != null" >
+        hospital_fees = #{hospitalFees,jdbcType=VARCHAR},
+      </if>
+      <if test="copy1 != null" >
+        copy_1 = #{copy1,jdbcType=DOUBLE},
+      </if>
+      <if test="copy2 != null" >
+        copy_2 = #{copy2,jdbcType=DOUBLE},
+      </if>
+      <if test="copy3 != null" >
+        copy_3 = #{copy3,jdbcType=DOUBLE},
+      </if>
+      <if test="copy4 != null" >
+        copy_4 = #{copy4,jdbcType=DOUBLE},
+      </if>
+      <if test="copy5 != null" >
+        copy_5 = #{copy5,jdbcType=DOUBLE},
+      </if>
+      <if test="copyGt5 != null" >
+        copy_gt5 = #{copyGt5,jdbcType=DOUBLE},
+      </if>
+      <if test="modifyUserfid != null" >
+        modify_userfid = #{modifyUserfid,jdbcType=INTEGER},
+      </if>
+      <if test="modifyname != null" >
+        modifyname = #{modifyname,jdbcType=VARCHAR},
+      </if>
+      <if test="modifydate != null" >
+        modifydate = #{modifydate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where fid = #{fid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.slk.wph.module.CUS_Price.po.CusPrice" >
+    update cus_price
+    set type = #{type,jdbcType=VARCHAR},
+      hospital_fees = #{hospitalFees,jdbcType=VARCHAR},
+      copy_1 = #{copy1,jdbcType=DOUBLE},
+      copy_2 = #{copy2,jdbcType=DOUBLE},
+      copy_3 = #{copy3,jdbcType=DOUBLE},
+      copy_4 = #{copy4,jdbcType=DOUBLE},
+      copy_5 = #{copy5,jdbcType=DOUBLE},
+      copy_gt5 = #{copyGt5,jdbcType=DOUBLE},
+      modify_userfid = #{modifyUserfid,jdbcType=INTEGER},
+      modifyname = #{modifyname,jdbcType=VARCHAR},
+      modifydate = #{modifydate,jdbcType=TIMESTAMP}
+    where fid = #{fid,jdbcType=INTEGER}
+  </update>
+</mapper>

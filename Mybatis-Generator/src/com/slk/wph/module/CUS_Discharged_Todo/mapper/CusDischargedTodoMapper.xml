@@ -1,0 +1,670 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slk.wph.module.CUS_Discharged_Todo.mapper.CusDischargedTodoMapper" >
+  <resultMap id="BaseResultMap" type="com.slk.wph.module.CUS_Discharged_Todo.po.CusDischargedTodo" >
+    <id column="fid" property="fid" jdbcType="INTEGER" />
+    <result column="patient_name" property="patientName" jdbcType="VARCHAR" />
+    <result column="order_state" property="orderState" jdbcType="INTEGER" />
+    <result column="patient_type" property="patientType" jdbcType="INTEGER" />
+    <result column="todo_time" property="todoTime" jdbcType="TIMESTAMP" />
+    <result column="wph_ward_fid" property="wphWardFid" jdbcType="INTEGER" />
+    <result column="wph_ward_name" property="wphWardName" jdbcType="VARCHAR" />
+    <result column="hospitalid" property="hospitalid" jdbcType="VARCHAR" />
+    <result column="bedno" property="bedno" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="source" property="source" jdbcType="VARCHAR" />
+    <result column="cus_patient_id" property="cusPatientId" jdbcType="INTEGER" />
+    <result column="appoint_time" property="appointTime" jdbcType="TIMESTAMP" />
+    <result column="commit_time" property="commitTime" jdbcType="TIMESTAMP" />
+    <result column="cancel_time" property="cancelTime" jdbcType="TIMESTAMP" />
+    <result column="charge_time" property="chargeTime" jdbcType="TIMESTAMP" />
+    <result column="handle_time" property="handleTime" jdbcType="TIMESTAMP" />
+    <result column="refund_time" property="refundTime" jdbcType="TIMESTAMP" />
+    <result column="finish_time" property="finishTime" jdbcType="TIMESTAMP" />
+    <result column="collect_sign" property="collectSign" jdbcType="VARCHAR" />
+    <result column="collect_time" property="collectTime" jdbcType="TIMESTAMP" />
+    <result column="charge_slip_state" property="chargeSlipState" jdbcType="INTEGER" />
+    <result column="refund_slip_state" property="refundSlipState" jdbcType="INTEGER" />
+    <result column="refund_patient_sign" property="refundPatientSign" jdbcType="VARCHAR" />
+    <result column="refund_patient_time" property="refundPatientTime" jdbcType="TIMESTAMP" />
+    <result column="cancel_reason" property="cancelReason" jdbcType="VARCHAR" />
+    <result column="cancel_patient_sign" property="cancelPatientSign" jdbcType="VARCHAR" />
+    <result column="cost" property="cost" jdbcType="DOUBLE" />
+    <result column="paytype" property="paytype" jdbcType="INTEGER" />
+    <result column="pay_state" property="payState" jdbcType="INTEGER" />
+    <result column="modify_userfid" property="modifyUserfid" jdbcType="INTEGER" />
+    <result column="modifyname" property="modifyname" jdbcType="VARCHAR" />
+    <result column="modifydate" property="modifydate" jdbcType="TIMESTAMP" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    fid, patient_name, order_state, patient_type, todo_time, wph_ward_fid, wph_ward_name, 
+    hospitalid, bedno, phone, source, cus_patient_id, appoint_time, commit_time, cancel_time, 
+    charge_time, handle_time, refund_time, finish_time, collect_sign, collect_time, charge_slip_state, 
+    refund_slip_state, refund_patient_sign, refund_patient_time, cancel_reason, cancel_patient_sign, 
+    cost, paytype, pay_state, modify_userfid, modifyname, modifydate, remarks
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.slk.wph.module.CUS_Discharged_Todo.po.CusDischargedTodoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from cus_discharged_todo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from cus_discharged_todo
+    where fid = #{fid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from cus_discharged_todo
+    where fid = #{fid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.slk.wph.module.CUS_Discharged_Todo.po.CusDischargedTodoExample" >
+    delete from cus_discharged_todo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.slk.wph.module.CUS_Discharged_Todo.po.CusDischargedTodo" >
+    insert into cus_discharged_todo (fid, patient_name, order_state, 
+      patient_type, todo_time, wph_ward_fid, 
+      wph_ward_name, hospitalid, bedno, 
+      phone, source, cus_patient_id, 
+      appoint_time, commit_time, cancel_time, 
+      charge_time, handle_time, refund_time, 
+      finish_time, collect_sign, collect_time, 
+      charge_slip_state, refund_slip_state, refund_patient_sign, 
+      refund_patient_time, cancel_reason, cancel_patient_sign, 
+      cost, paytype, pay_state, 
+      modify_userfid, modifyname, modifydate, 
+      remarks)
+    values (#{fid,jdbcType=INTEGER}, #{patientName,jdbcType=VARCHAR}, #{orderState,jdbcType=INTEGER}, 
+      #{patientType,jdbcType=INTEGER}, #{todoTime,jdbcType=TIMESTAMP}, #{wphWardFid,jdbcType=INTEGER}, 
+      #{wphWardName,jdbcType=VARCHAR}, #{hospitalid,jdbcType=VARCHAR}, #{bedno,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{source,jdbcType=VARCHAR}, #{cusPatientId,jdbcType=INTEGER}, 
+      #{appointTime,jdbcType=TIMESTAMP}, #{commitTime,jdbcType=TIMESTAMP}, #{cancelTime,jdbcType=TIMESTAMP}, 
+      #{chargeTime,jdbcType=TIMESTAMP}, #{handleTime,jdbcType=TIMESTAMP}, #{refundTime,jdbcType=TIMESTAMP}, 
+      #{finishTime,jdbcType=TIMESTAMP}, #{collectSign,jdbcType=VARCHAR}, #{collectTime,jdbcType=TIMESTAMP}, 
+      #{chargeSlipState,jdbcType=INTEGER}, #{refundSlipState,jdbcType=INTEGER}, #{refundPatientSign,jdbcType=VARCHAR}, 
+      #{refundPatientTime,jdbcType=TIMESTAMP}, #{cancelReason,jdbcType=VARCHAR}, #{cancelPatientSign,jdbcType=VARCHAR}, 
+      #{cost,jdbcType=DOUBLE}, #{paytype,jdbcType=INTEGER}, #{payState,jdbcType=INTEGER}, 
+      #{modifyUserfid,jdbcType=INTEGER}, #{modifyname,jdbcType=VARCHAR}, #{modifydate,jdbcType=TIMESTAMP}, 
+      #{remarks,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.slk.wph.module.CUS_Discharged_Todo.po.CusDischargedTodo" >
+    insert into cus_discharged_todo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fid != null" >
+        fid,
+      </if>
+      <if test="patientName != null" >
+        patient_name,
+      </if>
+      <if test="orderState != null" >
+        order_state,
+      </if>
+      <if test="patientType != null" >
+        patient_type,
+      </if>
+      <if test="todoTime != null" >
+        todo_time,
+      </if>
+      <if test="wphWardFid != null" >
+        wph_ward_fid,
+      </if>
+      <if test="wphWardName != null" >
+        wph_ward_name,
+      </if>
+      <if test="hospitalid != null" >
+        hospitalid,
+      </if>
+      <if test="bedno != null" >
+        bedno,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="source != null" >
+        source,
+      </if>
+      <if test="cusPatientId != null" >
+        cus_patient_id,
+      </if>
+      <if test="appointTime != null" >
+        appoint_time,
+      </if>
+      <if test="commitTime != null" >
+        commit_time,
+      </if>
+      <if test="cancelTime != null" >
+        cancel_time,
+      </if>
+      <if test="chargeTime != null" >
+        charge_time,
+      </if>
+      <if test="handleTime != null" >
+        handle_time,
+      </if>
+      <if test="refundTime != null" >
+        refund_time,
+      </if>
+      <if test="finishTime != null" >
+        finish_time,
+      </if>
+      <if test="collectSign != null" >
+        collect_sign,
+      </if>
+      <if test="collectTime != null" >
+        collect_time,
+      </if>
+      <if test="chargeSlipState != null" >
+        charge_slip_state,
+      </if>
+      <if test="refundSlipState != null" >
+        refund_slip_state,
+      </if>
+      <if test="refundPatientSign != null" >
+        refund_patient_sign,
+      </if>
+      <if test="refundPatientTime != null" >
+        refund_patient_time,
+      </if>
+      <if test="cancelReason != null" >
+        cancel_reason,
+      </if>
+      <if test="cancelPatientSign != null" >
+        cancel_patient_sign,
+      </if>
+      <if test="cost != null" >
+        cost,
+      </if>
+      <if test="paytype != null" >
+        paytype,
+      </if>
+      <if test="payState != null" >
+        pay_state,
+      </if>
+      <if test="modifyUserfid != null" >
+        modify_userfid,
+      </if>
+      <if test="modifyname != null" >
+        modifyname,
+      </if>
+      <if test="modifydate != null" >
+        modifydate,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fid != null" >
+        #{fid,jdbcType=INTEGER},
+      </if>
+      <if test="patientName != null" >
+        #{patientName,jdbcType=VARCHAR},
+      </if>
+      <if test="orderState != null" >
+        #{orderState,jdbcType=INTEGER},
+      </if>
+      <if test="patientType != null" >
+        #{patientType,jdbcType=INTEGER},
+      </if>
+      <if test="todoTime != null" >
+        #{todoTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wphWardFid != null" >
+        #{wphWardFid,jdbcType=INTEGER},
+      </if>
+      <if test="wphWardName != null" >
+        #{wphWardName,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalid != null" >
+        #{hospitalid,jdbcType=VARCHAR},
+      </if>
+      <if test="bedno != null" >
+        #{bedno,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="cusPatientId != null" >
+        #{cusPatientId,jdbcType=INTEGER},
+      </if>
+      <if test="appointTime != null" >
+        #{appointTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="commitTime != null" >
+        #{commitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cancelTime != null" >
+        #{cancelTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chargeTime != null" >
+        #{chargeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="handleTime != null" >
+        #{handleTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="refundTime != null" >
+        #{refundTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="finishTime != null" >
+        #{finishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="collectSign != null" >
+        #{collectSign,jdbcType=VARCHAR},
+      </if>
+      <if test="collectTime != null" >
+        #{collectTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chargeSlipState != null" >
+        #{chargeSlipState,jdbcType=INTEGER},
+      </if>
+      <if test="refundSlipState != null" >
+        #{refundSlipState,jdbcType=INTEGER},
+      </if>
+      <if test="refundPatientSign != null" >
+        #{refundPatientSign,jdbcType=VARCHAR},
+      </if>
+      <if test="refundPatientTime != null" >
+        #{refundPatientTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cancelReason != null" >
+        #{cancelReason,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelPatientSign != null" >
+        #{cancelPatientSign,jdbcType=VARCHAR},
+      </if>
+      <if test="cost != null" >
+        #{cost,jdbcType=DOUBLE},
+      </if>
+      <if test="paytype != null" >
+        #{paytype,jdbcType=INTEGER},
+      </if>
+      <if test="payState != null" >
+        #{payState,jdbcType=INTEGER},
+      </if>
+      <if test="modifyUserfid != null" >
+        #{modifyUserfid,jdbcType=INTEGER},
+      </if>
+      <if test="modifyname != null" >
+        #{modifyname,jdbcType=VARCHAR},
+      </if>
+      <if test="modifydate != null" >
+        #{modifydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.slk.wph.module.CUS_Discharged_Todo.po.CusDischargedTodoExample" resultType="java.lang.Integer" >
+    select count(*) from cus_discharged_todo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update cus_discharged_todo
+    <set >
+      <if test="record.fid != null" >
+        fid = #{record.fid,jdbcType=INTEGER},
+      </if>
+      <if test="record.patientName != null" >
+        patient_name = #{record.patientName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderState != null" >
+        order_state = #{record.orderState,jdbcType=INTEGER},
+      </if>
+      <if test="record.patientType != null" >
+        patient_type = #{record.patientType,jdbcType=INTEGER},
+      </if>
+      <if test="record.todoTime != null" >
+        todo_time = #{record.todoTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.wphWardFid != null" >
+        wph_ward_fid = #{record.wphWardFid,jdbcType=INTEGER},
+      </if>
+      <if test="record.wphWardName != null" >
+        wph_ward_name = #{record.wphWardName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hospitalid != null" >
+        hospitalid = #{record.hospitalid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bedno != null" >
+        bedno = #{record.bedno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phone != null" >
+        phone = #{record.phone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.source != null" >
+        source = #{record.source,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cusPatientId != null" >
+        cus_patient_id = #{record.cusPatientId,jdbcType=INTEGER},
+      </if>
+      <if test="record.appointTime != null" >
+        appoint_time = #{record.appointTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.commitTime != null" >
+        commit_time = #{record.commitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.cancelTime != null" >
+        cancel_time = #{record.cancelTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.chargeTime != null" >
+        charge_time = #{record.chargeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.handleTime != null" >
+        handle_time = #{record.handleTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.refundTime != null" >
+        refund_time = #{record.refundTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.finishTime != null" >
+        finish_time = #{record.finishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.collectSign != null" >
+        collect_sign = #{record.collectSign,jdbcType=VARCHAR},
+      </if>
+      <if test="record.collectTime != null" >
+        collect_time = #{record.collectTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.chargeSlipState != null" >
+        charge_slip_state = #{record.chargeSlipState,jdbcType=INTEGER},
+      </if>
+      <if test="record.refundSlipState != null" >
+        refund_slip_state = #{record.refundSlipState,jdbcType=INTEGER},
+      </if>
+      <if test="record.refundPatientSign != null" >
+        refund_patient_sign = #{record.refundPatientSign,jdbcType=VARCHAR},
+      </if>
+      <if test="record.refundPatientTime != null" >
+        refund_patient_time = #{record.refundPatientTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.cancelReason != null" >
+        cancel_reason = #{record.cancelReason,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cancelPatientSign != null" >
+        cancel_patient_sign = #{record.cancelPatientSign,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cost != null" >
+        cost = #{record.cost,jdbcType=DOUBLE},
+      </if>
+      <if test="record.paytype != null" >
+        paytype = #{record.paytype,jdbcType=INTEGER},
+      </if>
+      <if test="record.payState != null" >
+        pay_state = #{record.payState,jdbcType=INTEGER},
+      </if>
+      <if test="record.modifyUserfid != null" >
+        modify_userfid = #{record.modifyUserfid,jdbcType=INTEGER},
+      </if>
+      <if test="record.modifyname != null" >
+        modifyname = #{record.modifyname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modifydate != null" >
+        modifydate = #{record.modifydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.remarks != null" >
+        remarks = #{record.remarks,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update cus_discharged_todo
+    set fid = #{record.fid,jdbcType=INTEGER},
+      patient_name = #{record.patientName,jdbcType=VARCHAR},
+      order_state = #{record.orderState,jdbcType=INTEGER},
+      patient_type = #{record.patientType,jdbcType=INTEGER},
+      todo_time = #{record.todoTime,jdbcType=TIMESTAMP},
+      wph_ward_fid = #{record.wphWardFid,jdbcType=INTEGER},
+      wph_ward_name = #{record.wphWardName,jdbcType=VARCHAR},
+      hospitalid = #{record.hospitalid,jdbcType=VARCHAR},
+      bedno = #{record.bedno,jdbcType=VARCHAR},
+      phone = #{record.phone,jdbcType=VARCHAR},
+      source = #{record.source,jdbcType=VARCHAR},
+      cus_patient_id = #{record.cusPatientId,jdbcType=INTEGER},
+      appoint_time = #{record.appointTime,jdbcType=TIMESTAMP},
+      commit_time = #{record.commitTime,jdbcType=TIMESTAMP},
+      cancel_time = #{record.cancelTime,jdbcType=TIMESTAMP},
+      charge_time = #{record.chargeTime,jdbcType=TIMESTAMP},
+      handle_time = #{record.handleTime,jdbcType=TIMESTAMP},
+      refund_time = #{record.refundTime,jdbcType=TIMESTAMP},
+      finish_time = #{record.finishTime,jdbcType=TIMESTAMP},
+      collect_sign = #{record.collectSign,jdbcType=VARCHAR},
+      collect_time = #{record.collectTime,jdbcType=TIMESTAMP},
+      charge_slip_state = #{record.chargeSlipState,jdbcType=INTEGER},
+      refund_slip_state = #{record.refundSlipState,jdbcType=INTEGER},
+      refund_patient_sign = #{record.refundPatientSign,jdbcType=VARCHAR},
+      refund_patient_time = #{record.refundPatientTime,jdbcType=TIMESTAMP},
+      cancel_reason = #{record.cancelReason,jdbcType=VARCHAR},
+      cancel_patient_sign = #{record.cancelPatientSign,jdbcType=VARCHAR},
+      cost = #{record.cost,jdbcType=DOUBLE},
+      paytype = #{record.paytype,jdbcType=INTEGER},
+      pay_state = #{record.payState,jdbcType=INTEGER},
+      modify_userfid = #{record.modifyUserfid,jdbcType=INTEGER},
+      modifyname = #{record.modifyname,jdbcType=VARCHAR},
+      modifydate = #{record.modifydate,jdbcType=TIMESTAMP},
+      remarks = #{record.remarks,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.slk.wph.module.CUS_Discharged_Todo.po.CusDischargedTodo" >
+    update cus_discharged_todo
+    <set >
+      <if test="patientName != null" >
+        patient_name = #{patientName,jdbcType=VARCHAR},
+      </if>
+      <if test="orderState != null" >
+        order_state = #{orderState,jdbcType=INTEGER},
+      </if>
+      <if test="patientType != null" >
+        patient_type = #{patientType,jdbcType=INTEGER},
+      </if>
+      <if test="todoTime != null" >
+        todo_time = #{todoTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wphWardFid != null" >
+        wph_ward_fid = #{wphWardFid,jdbcType=INTEGER},
+      </if>
+      <if test="wphWardName != null" >
+        wph_ward_name = #{wphWardName,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalid != null" >
+        hospitalid = #{hospitalid,jdbcType=VARCHAR},
+      </if>
+      <if test="bedno != null" >
+        bedno = #{bedno,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        source = #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="cusPatientId != null" >
+        cus_patient_id = #{cusPatientId,jdbcType=INTEGER},
+      </if>
+      <if test="appointTime != null" >
+        appoint_time = #{appointTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="commitTime != null" >
+        commit_time = #{commitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cancelTime != null" >
+        cancel_time = #{cancelTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chargeTime != null" >
+        charge_time = #{chargeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="handleTime != null" >
+        handle_time = #{handleTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="refundTime != null" >
+        refund_time = #{refundTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="finishTime != null" >
+        finish_time = #{finishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="collectSign != null" >
+        collect_sign = #{collectSign,jdbcType=VARCHAR},
+      </if>
+      <if test="collectTime != null" >
+        collect_time = #{collectTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chargeSlipState != null" >
+        charge_slip_state = #{chargeSlipState,jdbcType=INTEGER},
+      </if>
+      <if test="refundSlipState != null" >
+        refund_slip_state = #{refundSlipState,jdbcType=INTEGER},
+      </if>
+      <if test="refundPatientSign != null" >
+        refund_patient_sign = #{refundPatientSign,jdbcType=VARCHAR},
+      </if>
+      <if test="refundPatientTime != null" >
+        refund_patient_time = #{refundPatientTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cancelReason != null" >
+        cancel_reason = #{cancelReason,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelPatientSign != null" >
+        cancel_patient_sign = #{cancelPatientSign,jdbcType=VARCHAR},
+      </if>
+      <if test="cost != null" >
+        cost = #{cost,jdbcType=DOUBLE},
+      </if>
+      <if test="paytype != null" >
+        paytype = #{paytype,jdbcType=INTEGER},
+      </if>
+      <if test="payState != null" >
+        pay_state = #{payState,jdbcType=INTEGER},
+      </if>
+      <if test="modifyUserfid != null" >
+        modify_userfid = #{modifyUserfid,jdbcType=INTEGER},
+      </if>
+      <if test="modifyname != null" >
+        modifyname = #{modifyname,jdbcType=VARCHAR},
+      </if>
+      <if test="modifydate != null" >
+        modifydate = #{modifydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where fid = #{fid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.slk.wph.module.CUS_Discharged_Todo.po.CusDischargedTodo" >
+    update cus_discharged_todo
+    set patient_name = #{patientName,jdbcType=VARCHAR},
+      order_state = #{orderState,jdbcType=INTEGER},
+      patient_type = #{patientType,jdbcType=INTEGER},
+      todo_time = #{todoTime,jdbcType=TIMESTAMP},
+      wph_ward_fid = #{wphWardFid,jdbcType=INTEGER},
+      wph_ward_name = #{wphWardName,jdbcType=VARCHAR},
+      hospitalid = #{hospitalid,jdbcType=VARCHAR},
+      bedno = #{bedno,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      source = #{source,jdbcType=VARCHAR},
+      cus_patient_id = #{cusPatientId,jdbcType=INTEGER},
+      appoint_time = #{appointTime,jdbcType=TIMESTAMP},
+      commit_time = #{commitTime,jdbcType=TIMESTAMP},
+      cancel_time = #{cancelTime,jdbcType=TIMESTAMP},
+      charge_time = #{chargeTime,jdbcType=TIMESTAMP},
+      handle_time = #{handleTime,jdbcType=TIMESTAMP},
+      refund_time = #{refundTime,jdbcType=TIMESTAMP},
+      finish_time = #{finishTime,jdbcType=TIMESTAMP},
+      collect_sign = #{collectSign,jdbcType=VARCHAR},
+      collect_time = #{collectTime,jdbcType=TIMESTAMP},
+      charge_slip_state = #{chargeSlipState,jdbcType=INTEGER},
+      refund_slip_state = #{refundSlipState,jdbcType=INTEGER},
+      refund_patient_sign = #{refundPatientSign,jdbcType=VARCHAR},
+      refund_patient_time = #{refundPatientTime,jdbcType=TIMESTAMP},
+      cancel_reason = #{cancelReason,jdbcType=VARCHAR},
+      cancel_patient_sign = #{cancelPatientSign,jdbcType=VARCHAR},
+      cost = #{cost,jdbcType=DOUBLE},
+      paytype = #{paytype,jdbcType=INTEGER},
+      pay_state = #{payState,jdbcType=INTEGER},
+      modify_userfid = #{modifyUserfid,jdbcType=INTEGER},
+      modifyname = #{modifyname,jdbcType=VARCHAR},
+      modifydate = #{modifydate,jdbcType=TIMESTAMP},
+      remarks = #{remarks,jdbcType=VARCHAR}
+    where fid = #{fid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="bin">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../slk-pms/Mybatis-Generator/bin/persistence-api-1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../slk-pms/Mybatis-Generator/bin/commons-lang-2.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../slk-pms/Mybatis-Generator/bin/spring-beans-4.2.5.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../slk-pms/Mybatis-Generator/bin/commons-beanutils-1.8.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../slk-pms/Mybatis-Generator/bin/lombok-1.16.8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../slk-pms/Mybatis-Generator/bin/mysql-connector-java-5.1.16-bin.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../slk-pms/Mybatis-Generator/bin/spring-tx-4.2.5.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../slk-pms/Mybatis-Generator/bin/commons-collections-3.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../slk-pms/Mybatis-Generator/bin/mapper-base-1.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../slk-pms/Mybatis-Generator/bin/spring-context-4.2.5.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
